@@ -51,7 +51,6 @@ namespace Practico5.Presentacion
                     this.lblMensaje.Text = "Vehiculo ingresado con éxito!!";
                     this.Limpiar();
                     this.Listar();
-                    this.Listar2();
 
                 }
                 else
@@ -59,6 +58,10 @@ namespace Practico5.Presentacion
                     this.lblMensaje.Text = "Error";
                     
                 }
+            }
+            else
+            {
+                this.lblMensaje.Text = "Faltan datos";
             }
          }
 
@@ -69,19 +72,13 @@ namespace Practico5.Presentacion
             this.txtModelo.Clear();
             this.txtAnio.Clear();
             this.txtPrecio.Clear();
-            this.lstVehiculos.Focus();
         }
 
         private void Listar()
         {
             Dominio.Automotora unaAutomotora = new Dominio.Automotora();
+            this.lstVehiculos.DataSource = null;
             this.lstVehiculos.DataSource = unaAutomotora.ListaVehiculo();
-        }
-
-        private void Listar2()
-        {
-            Dominio.Automotora unaAutomotora = new Dominio.Automotora();
-            this.cboVehiculos.DataSource = unaAutomotora.ListaVehiculo();
         }
 
         private void lstVehiculos_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +90,7 @@ namespace Practico5.Presentacion
         {
             short id = short.Parse(this.txtIdVehiculo.Text);
             Dominio.Automotora unaAutomotora = new Dominio.Automotora();
-
+            this.lblMensaje.Text = "Vehiculo eliminado con exito";
             unaAutomotora.baja(id);
             this.Limpiar();
             this.Listar();
@@ -101,7 +98,18 @@ namespace Practico5.Presentacion
 
         private void btnModificarVehiculo_Click(object sender, EventArgs e)
         {
+            short id = short.Parse(this.txtIdVehiculo.Text);
+            string marca = this.txtMarca.Text;
+            string modelo = this.txtModelo.Text;
+            short año = short.Parse(this.txtAnio.Text);
+            double precio = double.Parse(this.txtPrecio.Text);
 
+            Dominio.Automotora unaAutomotora = new Dominio.Automotora();
+
+            unaAutomotora.modificar(id, marca, modelo, año, precio);
+            this.lblMensaje.Text = "Vehiculo modificado con exito";
+            this.Limpiar();
+            this.Listar();
         }
     }
 }

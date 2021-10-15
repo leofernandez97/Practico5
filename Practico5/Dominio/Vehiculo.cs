@@ -67,7 +67,7 @@ namespace Practico5.Dominio
 
         public override string ToString()
         {
-            return this.Id + " " + this.Marca + " " + this.Modelo + " " + this.Anio + " " + this.Precio;
+            return this.Id + " " + this.Marca + " " + this.Modelo + " " + this.Anio + " "+this.Stock+ " " + this.Precio;
         }
 
         

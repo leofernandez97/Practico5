@@ -44,7 +44,6 @@ namespace Practico5.Presentacion
             this.btnModificarVehiculo = new System.Windows.Forms.Button();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.lstVehiculos = new System.Windows.Forms.ListBox();
-            this.cboVehiculos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtIdVehiculo
@@ -177,20 +176,11 @@ namespace Practico5.Presentacion
             this.lstVehiculos.Size = new System.Drawing.Size(329, 132);
             this.lstVehiculos.TabIndex = 15;
             // 
-            // cboVehiculos
-            // 
-            this.cboVehiculos.FormattingEnabled = true;
-            this.cboVehiculos.Location = new System.Drawing.Point(483, 322);
-            this.cboVehiculos.Name = "cboVehiculos";
-            this.cboVehiculos.Size = new System.Drawing.Size(207, 24);
-            this.cboVehiculos.TabIndex = 16;
-            // 
             // frmVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 450);
-            this.Controls.Add(this.cboVehiculos);
             this.Controls.Add(this.lstVehiculos);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnModificarVehiculo);
@@ -230,6 +220,5 @@ namespace Practico5.Presentacion
         private System.Windows.Forms.Button btnModificarVehiculo;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.ListBox lstVehiculos;
-        private System.Windows.Forms.ComboBox cboVehiculos;
     }
 }

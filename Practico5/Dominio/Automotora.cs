@@ -35,6 +35,11 @@ namespace Practico5.Dominio
             return Vehiculos;
         }
 
+        public List<Venta> ListaVenta()
+        {
+            return Ventas;
+        }
+
 
 
         public bool alta(Vehiculo pVehiculo)
@@ -43,11 +48,19 @@ namespace Practico5.Dominio
             if (unVehiculo == null)
             {
                 Vehiculos.Add(pVehiculo);
+                foreach(Vehiculo uVehiculo in Vehiculos)
+                {
+                    if (uVehiculo.Id.Equals(pVehiculo.Id))
+                    {
+                        uVehiculo.Stock++;
+                    }
+                }
                 return true;
             }
             else
             {
-                return false;
+                unVehiculo.Stock++;
+                return true;
             }
         }
 
@@ -65,7 +78,21 @@ namespace Practico5.Dominio
             }
         }
 
-        
+        public bool modificar(short pId, string pMarca, string pModelo, short pAnio, double pPrecio)
+        {
+            Vehiculo unVehiculo = this.buscarVehiculo(pId);
+            if (unVehiculo != null)
+            {
+                unVehiculo.Id = pId;
+                unVehiculo.Marca= pMarca;
+                unVehiculo.Modelo = pModelo;
+                unVehiculo.Anio = pAnio;
+                unVehiculo.Precio = pPrecio;
+                return true;
+            }
+            else
+                return false;
+        }
 
         #endregion
 
@@ -88,8 +115,25 @@ namespace Practico5.Dominio
             Venta unaVenta = this.buscarVenta(pVenta.Id);
             if (unaVenta == null)
             {
-                Ventas.Add(pVenta);
-                return true;
+                if(pVenta.Vehiculo.Stock - 1 == 0)
+                {
+                    baja(pVenta.Vehiculo.Id);
+                    Ventas.Add(pVenta);
+                    return true;
+                }
+                else
+                {
+                    foreach(Vehiculo unVehiculo in Vehiculos)
+                    {
+                        if (unVehiculo.Id.Equals(pVenta.Vehiculo.Id))
+                        {
+                            unVehiculo.Stock--;
+                        }
+                    }
+                    Ventas.Add(pVenta);
+                    return true;
+                }
+                
             }
             else
             {
