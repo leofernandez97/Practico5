@@ -111,5 +111,10 @@ namespace Practico5.Presentacion
             this.Limpiar();
             this.Listar();
         }
+
+        private void frmVehiculos_Load(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
     }
 }

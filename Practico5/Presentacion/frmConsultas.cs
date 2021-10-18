@@ -16,5 +16,23 @@ namespace Practico5.Presentacion
         {
             InitializeComponent();
         }
+
+        private void btnMasCaros_Click(object sender, EventArgs e)
+        {
+            Dominio.Automotora unaAutomotora = new Dominio.Automotora();
+
+            this.lstMasCaros.DataSource = unaAutomotora.VehiculosMasCaros();
+        }
+
+        private void frmConsultas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOrdenarPorMarca_Click(object sender, EventArgs e)
+        {
+            Dominio.Automotora unaAutomotora = new Dominio.Automotora();
+            this.lstVehiculos.DataSource = unaAutomotora.VehiculosOrdenados();
+        }
     }
 }

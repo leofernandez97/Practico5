@@ -148,9 +148,9 @@ namespace Practico5.Presentacion
             // 
             // btnModificarVehiculo
             // 
-            this.btnModificarVehiculo.Location = new System.Drawing.Point(541, 165);
+            this.btnModificarVehiculo.Location = new System.Drawing.Point(535, 164);
             this.btnModificarVehiculo.Name = "btnModificarVehiculo";
-            this.btnModificarVehiculo.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarVehiculo.Size = new System.Drawing.Size(88, 23);
             this.btnModificarVehiculo.TabIndex = 13;
             this.btnModificarVehiculo.Text = "Modificar";
             this.btnModificarVehiculo.UseVisualStyleBackColor = true;
@@ -198,6 +198,7 @@ namespace Practico5.Presentacion
             this.Controls.Add(this.txtIdVehiculo);
             this.Name = "frmVehiculos";
             this.Text = "frmVehiculos";
+            this.Load += new System.EventHandler(this.frmVehiculos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

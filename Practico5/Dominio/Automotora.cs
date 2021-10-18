@@ -9,7 +9,10 @@ namespace Practico5.Dominio
     class Automotora
     {
         private static List<Vehiculo> Vehiculos = new List<Vehiculo>();
+        
         private static List<Venta> Ventas = new List<Venta>();
+
+        
 
         /*
         ABM Vehiculos
@@ -39,8 +42,6 @@ namespace Practico5.Dominio
         {
             return Ventas;
         }
-
-
 
         public bool alta(Vehiculo pVehiculo)
         {
@@ -133,7 +134,6 @@ namespace Practico5.Dominio
                     Ventas.Add(pVenta);
                     return true;
                 }
-                
             }
             else
             {
@@ -155,8 +155,69 @@ namespace Practico5.Dominio
             }
         }
 
+        public bool BuscarVehiculoVenta(short id, short anio, string modelo)
+        {
+            foreach(Vehiculo unVehiculo in Vehiculos)
+            {
+                if(unVehiculo.Id.Equals(id) && unVehiculo.Anio.Equals(anio) && unVehiculo.Modelo.Equals(modelo))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         #endregion
 
+        #region CONSULTAS
+        public Vehiculo VehiculoMasCaro()
+        {
+            Vehiculo masCaro = new Vehiculo(0,null,null,0,0);
+            
+
+            foreach (Vehiculo unVehiculo in Vehiculos)
+            {
+                if(unVehiculo.Precio > masCaro.Precio)
+                {
+                    masCaro = unVehiculo;
+                }
+            }
+
+            return masCaro;
+        }
+
+        public List<Vehiculo> VehiculosOrdenados()
+        {
+            List<Vehiculo> ListaVehiculosOrdenados = Vehiculos.OrderBy(Vehiculo => Vehiculo.Marca).ToList(); ;
+
+            return ListaVehiculosOrdenados;
+        }
+
+
+        public IEnumerable<Vehiculo> VehiculosMasCaros()
+        {
+            var groupedResult = from s in Vehiculos
+                                group s by s.Precio;
+
+            List<Vehiculo> ListaVehiculosMasCaros = new List<Vehiculo>();
+            double aux = 0;
+            //iterate each group        
+            foreach (var ageGroup in groupedResult)
+            {
+
+                if(ageGroup.Key > aux)
+                {
+                    ListaVehiculosMasCaros.Clear();
+                    foreach (Vehiculo s in ageGroup)
+                    { // Each group has inner collection
+                        ListaVehiculosMasCaros.Add(s);
+                    }
+                    aux = ageGroup.Key;
+                }
+            }
+            return ListaVehiculosMasCaros;
+        }
+        #endregion
 
     }
 }

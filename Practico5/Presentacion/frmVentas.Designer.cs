@@ -38,11 +38,9 @@ namespace Practico5.Presentacion
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.lstVehiculos = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lstVentas = new System.Windows.Forms.ListBox();
             this.btnAltaVenta = new System.Windows.Forms.Button();
-            this.btnBajaVenta = new System.Windows.Forms.Button();
-            this.lblMensaje = new System.Windows.Forms.Label();
+            this.txtMensaje = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -111,15 +109,6 @@ namespace Practico5.Presentacion
             this.label4.TabIndex = 7;
             this.label4.Text = "Vehiculos";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(469, 228);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Ultimas ventas";
-            // 
             // lstVentas
             // 
             this.lstVentas.FormattingEnabled = true;
@@ -131,7 +120,7 @@ namespace Practico5.Presentacion
             // 
             // btnAltaVenta
             // 
-            this.btnAltaVenta.Location = new System.Drawing.Point(446, 60);
+            this.btnAltaVenta.Location = new System.Drawing.Point(441, 82);
             this.btnAltaVenta.Name = "btnAltaVenta";
             this.btnAltaVenta.Size = new System.Drawing.Size(75, 23);
             this.btnAltaVenta.TabIndex = 10;
@@ -139,32 +128,21 @@ namespace Practico5.Presentacion
             this.btnAltaVenta.UseVisualStyleBackColor = true;
             this.btnAltaVenta.Click += new System.EventHandler(this.btnAltaVenta_Click);
             // 
-            // btnBajaVenta
+            // txtMensaje
             // 
-            this.btnBajaVenta.Location = new System.Drawing.Point(446, 101);
-            this.btnBajaVenta.Name = "btnBajaVenta";
-            this.btnBajaVenta.Size = new System.Drawing.Size(75, 23);
-            this.btnBajaVenta.TabIndex = 11;
-            this.btnBajaVenta.Text = "Eliminar Venta";
-            this.btnBajaVenta.UseVisualStyleBackColor = true;
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Location = new System.Drawing.Point(389, 170);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 17);
-            this.lblMensaje.TabIndex = 12;
+            this.txtMensaje.AutoSize = true;
+            this.txtMensaje.Location = new System.Drawing.Point(419, 178);
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(0, 17);
+            this.txtMensaje.TabIndex = 12;
             // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 450);
-            this.Controls.Add(this.lblMensaje);
-            this.Controls.Add(this.btnBajaVenta);
+            this.ClientSize = new System.Drawing.Size(741, 450);
+            this.Controls.Add(this.txtMensaje);
             this.Controls.Add(this.btnAltaVenta);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.lstVentas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstVehiculos);
@@ -193,10 +171,8 @@ namespace Practico5.Presentacion
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.ListBox lstVehiculos;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lstVentas;
         private System.Windows.Forms.Button btnAltaVenta;
-        private System.Windows.Forms.Button btnBajaVenta;
-        private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Label txtMensaje;
     }
 }

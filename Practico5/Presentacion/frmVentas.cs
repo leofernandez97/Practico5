@@ -23,16 +23,27 @@ namespace Practico5.Presentacion
             string modelo = this.txtModelo.Text;
             short anio = short.Parse(this.txtAnio.Text);
 
-
-
-            
             Dominio.Automotora unaAutomotora = new Dominio.Automotora();
-            Dominio.Venta unaVenta = new Dominio.Venta(id, DateTime.Now.Date, unaAutomotora.buscarVehiculo(id));
-            unaAutomotora.buscarVehiculo(id);
 
-            unaAutomotora.altaVenta(unaVenta);
-            this.Limpiar();
-            this.Listar();
+            bool aux = unaAutomotora.BuscarVehiculoVenta(id, anio, modelo);
+
+            if (aux)
+            {
+                Dominio.Venta unaVenta = new Dominio.Venta(id, DateTime.Now.Date, unaAutomotora.buscarVehiculo(id));
+                unaAutomotora.buscarVehiculo(id);
+
+                unaAutomotora.altaVenta(unaVenta);
+                this.txtMensaje.Text = "Venta realizada con exito";
+                this.Limpiar();
+                this.Listar();
+            }
+            else
+            {
+                this.txtMensaje.Text = "No se ha encontrado el vehiculo";
+                this.Limpiar();
+            }
+
+           
         }
 
         private void Listar()
@@ -55,7 +66,7 @@ namespace Practico5.Presentacion
 
         private void frmVentas_Load(object sender, EventArgs e)
         {
-            Listar();
+            this.Listar();
         }
     }
 }
